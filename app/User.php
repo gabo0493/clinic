@@ -36,4 +36,25 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+//RELACIONES
+
+    public function permissions()
+    {
+        return $this->belongsToMany('App\Permission'); // el nombre de la clase es en plural xq un usuario puede tener muchos permisos
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role')->withTimestamps(); // el nombre de la clase es en plural xq un usuario puede tener muchos roles
+    }
+
+//ALMACENAMIENTO
+
+//VALIDACION
+
+//RECUPERACION DE INFORMACION
+
+//OTRAS OPERACIONES
+
 }
