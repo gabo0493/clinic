@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Clínica Odontológica App
+                    Clínica Odontológica New Smile
                 </div>
 
                 <div class="links">
