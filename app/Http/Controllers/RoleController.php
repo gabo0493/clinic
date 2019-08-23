@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Role;
+use App\Http\Requests\Role\StoreRequest;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -33,9 +34,10 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request, Role $role)
     {
-        dd($request);
+        $role = $role -> store($request);
+        return redirect()->route('backoffice.role.show', $role);
     }
 
     /**
@@ -46,7 +48,9 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return view('theme.backoffice.pages.role.show', [
+          'role' => $role,
+        ]);
     }
 
     /**

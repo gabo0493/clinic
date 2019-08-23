@@ -20,15 +20,25 @@
 
 
                          <div class="row">
-                           <div class="input-field col s12">
-                             <input id="name" type="text" name="name">
-                             <label for="name">Nombre del rol</label>
-                           </div>
+                            <div class="input-field col s12">
+                              <input id="name" type="text" name="name">
+                              <label for="name">Nombre del rol</label>
+                              @if ($errors->has('name'))
+                                <span class="invalid-feedback" role="alert">
+                                  <strong style="color: red">{{ $errors->first('name') }}</strong>
+                                </span>
+                              @endif
+                            </div>
                          </div>
                          <div class="row">
                            <div class="input-field col s12">
                              <textarea id="description" class="materialize-textarea" name="description"></textarea>
                              <label for="description">Descripción</label>
+                             @if ($errors->has('description'))
+                               <span class="invalid-feedback" role="alert">
+                                 <strong  style="color: red">{{ $errors->first('description') }}</strong>
+                               </span>
+                             @endif
                            </div>
                            <div class="row">
                              <div class="input-field col s12">
@@ -43,6 +53,8 @@
                    </div>
                  </div>
       </div>
+    </div>
+  </div>
 @endsection
 
 @section('foot')
