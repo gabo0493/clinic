@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\Http\Requests\Role\StoreRequest;
+use App\Http\Requests\Role\UpdateRequest;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -15,7 +16,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-      return 'Hola desde RoleController index';
+      return view('theme.backoffice.pages.role.index', [
+        'roles' => Role::all(),
+      ]);
     }
 
     /**
@@ -61,7 +64,9 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+      return view('theme.backoffice.pages.role.edit', [
+        'role' => $role,
+      ]);
     }
 
     /**
@@ -71,9 +76,9 @@ class RoleController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(UpdateRequest $request, Role $role)
     {
-        //
+        dd($request,'validacion correcta');
     }
 
     /**
